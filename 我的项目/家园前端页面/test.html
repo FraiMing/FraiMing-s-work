@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索引擎首页</title>
+    <link rel="stylesheet" href="style/CSS.css">
+</head>
+<body background="https://bing.img.run/1920x1080.php">
+    <div id="time"></div>
+    <div id="date"></div>
+
+    <script>
+        var time = document.getElementById('time');
+        var date = document.getElementById('date');
+        
+        setInterval(function() {
+      now = new Date();
+      time.innerHTML = now.toLocaleTimeString();
+      date.innerHTML = now.toLocaleDateString();
+    }, 1000);
+    </script>
+
+    <div class="container">
+        <div class="searching-box">
+            <form class="search-form" action="https://www.bing.com/search" method="GET" target="_blank">
+            <button type="submit" id="searchBtn">
+                <i class="fa-solid fa-magnifying-glass" id="searchpicture"></i>
+            </button>
+            <input type="text" placeholder="搜索一下吧" class="searchingBtn" name="q" id="userInput">
+            </form>
+        </div>
+
+        <button id="restoreBtn">
+            <i class="fa-solid fa-rotate-left" id="searchpicture"></i>
+        </button>
+
+        <button id="fireBtn">
+            <i class="fa-solid fa-fire" id="searchpicture"></i>
+        </button>
+
+        
+    </div>
+    
+
+    <script>
+        let i = 0
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const userInput = document.getElementById("userInput");
+            const searchBtn = document.getElementById("searchBtn");
+            const restoreBtn = document.getElementById("restoreBtn");
+            const fireBtn = document.getElementById("fireBtn");
+            const savedText = localStorage.getItem("userInput");
+            if (savedText) {
+                userInput.value = savedText;
+            }
+            
+            searchBtn.addEventListener("click", function() {
+                const text = userInput.value.trim();
+                if (text) {
+                    createHistory()
+                    localStorage.setItem("userInput", text);
+                }
+            });
+            
+            restoreBtn.addEventListener("click", function() {
+                const savedText = localStorage.getItem("userInput");
+                if (savedText) {
+                    userInput.value = savedText;
+                }
+            });
+
+            fireBtn.addEventListener("click", function() {
+                const map = new Map();
+                map.set(1, "家园工作室");
+                map.set(2, "南大家园");
+                map.set(3, "云家园");
+                map.set(4, "超长的文字字字字字字字字");
+                map.set(5, "研发组");
+                map.set(6, "设计组");
+                map.set(7, "又一个超长的文字字字字字字字字");
+                map.set(8, "产品组");
+                map.set(9, "游戏组");
+                map.set(10, "运营组");
+                map.set(11, "又一个超长的文字字字字字字字字");
+                let random = Math.floor(Math.random() * 11) + 1; 
+                const fireText = map.get(random)
+                if (fireText) {
+                    userInput.value = fireText;
+                }
+            });
+
+            
+        });
+
+        function createHistory() {
+            const history = document.createElement("historyBtn");
+            history.id = "history"
+            history.textContent = userInput.value
+            history.addEventListener('click', function() {
+                userInput.value = history.textContent;
+                searchBtn.click();
+            });
+            document.getElementById('fatherid').appendChild(history);
+            i++
+        }
+
+        function removeHistory() {
+            for (; i > 0; i--){
+                const rubbish = document.getElementById("history")
+                rubbish.remove()
+            }
+        }
+
+    </script>  
+
+    <div id="find"> 搜索发现</div>
+
+    <div class="father" id="fatherid">
+        <button class="son" id="one" > 家园工作室</button>
+        <button class="son" id="two"> 南大家园</button>
+        <button class="son" id="three"> 云家园</button>
+        <button class="son" id="four"> 超长的文字字字字字字字字</button>
+        <button class="son" id="five"> 研发组</button>
+        <button class="son" id="six"> 设计组</button>
+        <button class="son" id="seven"> 又一个超长的文字字字字字字字字</button>
+        <button class="son" id="eight"> 产品组</button>
+        <button class="son" id="nine"> 游戏组</button>
+        <button class="son" id="ten"> 运营组</button>
+        <button class="son" id="eleven"> 又一个超长的文字字字字字字字字</button>
+    </div>
+
+    <button id="removeBtn" onclick=removeHistory()>
+        清除所有历史
+    </button>
+
+    <script>
+        const one = document.getElementById("one")
+        const two = document.getElementById("two")
+        const three = document.getElementById("three")
+        const four = document.getElementById("four")
+        const five = document.getElementById("five")
+        const six = document.getElementById("six")
+        const seven = document.getElementById("seven")
+        const eight = document.getElementById("eight")
+        const nine = document.getElementById("nine")
+        const ten = document.getElementById("ten")
+        const eleven = document.getElementById("eleven")
+
+        one.onclick=function(){
+            userInput.value = "家园工作室";
+            searchBtn.click();
+        }
+        two.onclick=function(){
+            userInput.value = "南大家园";
+            searchBtn.click();
+        }
+        three.onclick=function(){
+            userInput.value = "云家园";
+            searchBtn.click();
+        }
+        four.onclick=function(){
+            userInput.value = "超长的文字字字字字字字字";
+            searchBtn.click();
+        }
+        five.onclick=function(){
+            userInput.value = "研发组";
+            searchBtn.click();
+        }
+        six.onclick=function(){
+            userInput.value = "设计组";
+            searchBtn.click();
+        }
+        seven.onclick=function(){
+            userInput.value = "又一个超长的文字字字字字字字字";
+            searchBtn.click();
+        }
+        eight.onclick=function(){
+            userInput.value = "产品组";
+            searchBtn.click();
+        }
+        nine.onclick=function(){
+            userInput.value = "游戏组";
+            searchBtn.click();
+        }
+        ten.onclick=function(){
+            userInput.value = "运营组";
+            searchBtn.click();
+        }
+        eleven.onclick=function(){
+            userInput.value = "又一个超长的文字字字字字字字字";
+            searchBtn.click();
+        }
+
+    </script>
+    
+
+
+    <div id="titlepage">
+        <div id="titleword">支持我吧</div>
+        <div id="titleword">图片</div>
+        <div id="titleword">新闻</div>
+        <div id="titleword">首页</div>
+        <div id="logo">家园logo.jpg</div>
+    </div>
+    
+    
+    <script src="https://kit.fontawesome.com/f23451c27c.js" crossorigin="anonymous"></script>
+</body>
+</html>

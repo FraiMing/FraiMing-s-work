@@ -1,0 +1,134 @@
+总说明：
+    1. 软件/网站运用：vscode、deepseek、b站、菜鸟教程、现代js教程、bing以及一系列小网站……
+    2. github仓库地址：https://github.com/FraiMing/FraiMing-s-work.git（https）
+    3. 搜索页面网址：https://fraimingncuhomework.netlify.app/
+    4. 作品包含一个前端文件夹和一个后端文件夹以及该.txt文件。前端包含一个test.html和一个被style文件包含的CSS.css。后端包含一个test.go。如有文件损坏，请联系我重新提交。
+
+
+
+
+
+前端项目：
+1.作品成果：完成所有的基础要求；
+                     加分项包括：①标题栏
+                                           ②添加搜索历史，超过5字省略
+                                           ③清除搜索历史
+                                           ④刷新页面保留上一次搜索
+                                           ⑤页面可用链接访问（链接见总说明）
+                     页面适应不太好，请用电脑浏览器打开，别用手机。
+
+
+2.代码思路：
+           总页面 》标题栏，背景，搜索框，时间，恢复键，热门键，搜索发现，搜索历史，删除历史
+          值得提思路的部分：
+          1.时间：设定两个<div>分别id为time、date,通过document.getElementById()返回引用，通过new Date()获取时间，now.toLocaleTimeString()获得时间点(日期同理),setInterval设定1000ms每一秒进行一次
+          2.搜索框：form表格元素给搜索框设定action="https://www.bing.com/search"进行搜索
+          3.恢复键与刷新恢复：document.getElementById()返回用户输入、搜索键、恢复键，localStorage.getItem存储用户输入文本为savedText，只要有savedText就恢复（实现自动刷新恢复）；搜索键addEventListener("click", function)执行创建历史函数、再次存储输入；恢复键addEventListener("click", function)执行如果有储存的输入，就让用户输入.value = savedText。
+           4.热门键：dom addEventListener同上老一套，给预设的搜索发现都做成map，key都是数字，Math.floor(Math.random)生成随机数，通过随机数的key来获取设定内容value，value变成userInput
+           5.搜索历史：通过document.createElement创建一个个按钮，按钮.textContent = userInput.value，把按钮像预设内容一样放好。同时设一个i = 0，建一个按钮i++，方便后续删除全部历史
+           6.删除历史键：onclick=清除历史函数。清楚历史函数：循环（;i > 0; i--）保证删干净，dom.getById返回历史，用.remove()清除
+
+
+3.遇到的问题：
+    1.如何运用document、addEventListener、localStorage、createElement、remove、……知识来进行对标签内容的储存与运用，标签的监控，创建、删除标签等功能
+    2.随机数生成
+    3.随时获取当前时间
+    4.如何用form元素连接搜索引擎
+    5.button与鼠标事件：onclick、click……
+    6.各种css效果
+    7.如何进行链接访问
+    ……
+
+
+4.如何解决：
+    1.将要完成的效果、目的投给搜索引擎或ai（优先搜索引擎），通过各网站的大佬解答，观察其使用的知识。再将知识投给b站、菜鸟教程…网站，学习相关知识，再运用。
+       document作为大头，也是学习的重点。通过以下网站学习： https://www.runoob.com/jsref/dom-obj-document.html
+    2.部署网站链接访问使用的是netlify网站，将作品文件上传
+
+
+
+
+
+
+
+
+
+后端项目：
+1.作品成果：完成所有的基础要求；
+                     加分项：①运用大量函数，压缩main函数内容、大量运用map进行数据储存运用、运用数组储存验证码6位随机数。
+
+
+2.代码思路：
+        main（）输入手机号码 》testphonenumber（）验证形式 》 test（）进行1、2选择 》 choose1（）输入验证码 》 choose2（）获取验证码
+
+        1. main：输入手机号码，给这个手机号与日期做成map的key，value为5作为可获取验证码次数，执行testphonenumber
+         2. testphonenumber：正则表达式`^1[3456789]\d{9}$`验证，符合就test 并令一个x = 0，方便下面第一次获取验证码，不符合就重输
+        3. test：输入选择。1就choose1。2就用time包内的运算令t1、t2分别为savetime（见choose2）一分钟、五分钟后，第一次x==0直接choose2并令x++让后面获取验证码需要时间检验，后面x！=0就检验：一分钟内不给，一到五就choose2，超过五就删除验证码并令x--重新来过获取。不是1、2就报错误。
+        4. choose1：输入验证码（一个六位整数），如果==验证码的value（见choose2），就成功并删除验证码，否则失败。
+         5.choose2：如果次数 > 0，循环6利用rand.Intn生成随机数并填入一个6位的整数数组，利用十进制算法把6个数组数字计算成一个6位整数（也就是验证码），做成map，key为“验证码”value为6位整数。次数--，利用map记录此刻时间为savetime。如果次数 <= 0，就提示不能获取。
+
+
+3.遇到的问题：
+    1.“rand”随机数生成
+    2.“ time”时间获取与运算
+    3.“regexp”如何检验格式
+
+
+4.如何解决：
+    使用的方法大致与前端一致。
+    值得一提的内容是：我坐了几个小时研究我的time语法报错，实在没办法把报错内容投给ai，才明白了time是一种之前未学过time.Time类型（差点要崩溃了）
+    Q:cannot use now (variable of type func() time.Time) as string value in argument to fmt.Printf
+    A:你在 Go 语言中遇到了 cannot use now (variable of type func() time.Time) as string value in argument to fmt.Printf
+       这个错误，这通常是因为混淆了函数类型和其返回值类型。下面帮你分析和解决这个问题。
+       这个错误信息表明你试图将一个类型为 func() time.Time 的函数变量 now，直接作为字符串值传递给 fmt.Printf 函数。fmt.Printf 期望的是字符串类型的参数，但你提供的却是一个返回 time.Time 类型的函数。
+       例如，以下代码会导致这个错误：
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+    now := time.Now // 注意：这里没有括号，now 是一个函数
+    fmt.Printf("Current time: %s", now) // 错误：试图直接打印函数
+}
+
+......
+
+
+
+
+
+
+
+对AI的运用：（deepseek）
+    1.完全了解自己的代码，无搬运、抄袭！
+    2.总体上ai使用次数较少。前端项目运用较多，后端运用较少。
+    3.我并不打算把我的对话全部上传，都是简单的提问，可以参考eg，您可以认为我的ai提问能力完全小白
+    4.运用ai的方式：我对ai的运用经验较少，运用方式更多像搜索引擎一样，主要希望通过提出要完成的结果，观察其使用的方法，了解该方法的知识，再进行知识运用。
+eg：Q：go生成6个随机数
+        A：生成6个指定范围的随机数
+方法1 ：
+package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+func main() {
+    rand.Seed(time.Now().UnixNano())
+    
+    min := 10
+    max := 50
+    
+    for i := 0; i < 6; i++ {
+        // 生成[min, max]范围内的随机整数
+        num := rand.Intn(max-min+1) + min
+        fmt.Printf("随机数 %d: %d\n", i+1, num)
+    }
+}
+    我并不需要过于准确的修饰词来解决我的问题，只是需要ai来提出一种方法，我从中发现我未知的内容，再进行学习、运用，最终代码完全不依赖于ai。
+    5.我不会在报错后将代码发给ai，因为我认为这和抄代码没什么区别。

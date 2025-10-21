@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圈子页面</title>
+    <link rel="stylesheet" href="style/test.css">
+</head>
+<body>
+    <div class="searchingSector">
+        <div class="searchingBox">
+            <form class="searchingForm" method="GET" target="_blank">
+            <button type="submit" id="loupe">
+            <img src="picture/loupe.png" alt="loupe">
+            </button>
+            <input type="text" placeholder="发现习惯" class="searchingBtn" name="q" id="userInput">
+            </form>
+        </div>
+        <button id="focus">
+        <img src="picture/plus.png" alt="focusBtn">
+        </button>
+    </div>
+
+    <script>
+        const focusBtn = document.getElementById('focus');
+        const userInput = document.getElementById('userInput');
+
+        focusBtn.addEventListener('click', function() {
+            userInput.focus(); 
+        });
+    </script>
+
+<div class="contentSector">
+    <div class="upPart">
+        <div class="headshot">
+            <img src="picture/小家园.png" alt="头像.png">
+        </div>
+        <div class="mainInformation">
+            <div class="name">Name1</div>
+            <div class="college">XX学院</div>
+        </div>
+        <div class="time">Time1</div>
+    </div>
+    <div class="content">bulabulabula......</div>
+    <div class="downPart">
+        <div class="tag">
+            <img src="picture/指向标-copy.png" alt="索引标" class="tagPicture">
+            <span class="tagWord">交流</span>
+        </div>
+        <div class="interact">
+            <button class="good" id="good1"><img src="picture/dianzan.png" alt="点赞"></button>
+            <span id="good1Number">0</span>
+            <button class="comment"><img src="picture/评论.png" alt="评论"></button>
+            <span>评论</span>
+        </div>
+    </div>
+</div>
+
+    <script>
+        const good1Btn = document.querySelector('#good1 img')
+        const good1Num = document.getElementById('good1Number');  
+        let good1Number = 0;
+
+        good1Btn.addEventListener('click', function() {
+            if (good1Btn.src.includes('dianzan.png')) {
+                good1Btn.src = 'picture/dianzan_1.png'; 
+                good1Number++; 
+            } else {
+                good1Btn.src = 'picture/dianzan.png';  
+                good1Number--; 
+            }
+            good1Num.textContent = good1Number;
+        });
+    </script>
+
+    <div class="contentSector">
+    <div class="upPart">
+        <div class="headshot">
+            <img src="picture/小家园.png" alt="头像.png">
+        </div>
+        <div class="mainInformation">
+            <div class="name">Name2</div>
+            <div class="college">XX学院</div>
+        </div>
+        <div class="time">Time2</div>
+    </div>
+    <div class="content">bulabulabula......</div>
+    <div class="downPart">
+        <div class="tag">
+            <img src="picture/指向标-copy.png" alt="索引标" class="tagPicture">
+            <span class="tagWord">交流</span>
+        </div>
+        <div class="interact">
+            <button class="good" id="good2"><img src="picture/dianzan.png" alt="点赞"></button>
+            <span id="good2Number">0</span>
+            <button class="comment"><img src="picture/评论.png" alt="评论"></button>
+            <span>评论</span>
+        </div>
+    </div>
+</div>
+
+    <script>
+        const good2Btn = document.querySelector('#good2 img')
+        const good2Num = document.getElementById('good2Number');  
+        let good2Number = 0;
+
+        good2Btn.addEventListener('click', function() {
+            if (good2Btn.src.includes('dianzan.png')) {
+                good2Btn.src = 'picture/dianzan_1.png'; 
+                good2Number++; 
+            } else {
+                good2Btn.src = 'picture/dianzan.png';  
+                good2Number--; 
+            }
+            good2Num.textContent = good2Number;
+        });
+    </script>
+
+    <div class="contentSector">
+    <div class="upPart">
+        <div class="headshot">
+            <img src="picture/小家园.png" alt="头像.png">
+        </div>
+        <div class="mainInformation">
+            <div class="name">Name3</div>
+            <div class="college">XX学院</div>
+        </div>
+        <div class="time">Time3</div>
+    </div>
+    <div class="content">bulabulabula......</div>
+    <div class="downPart">
+        <div class="tag">
+            <img src="picture/指向标-copy.png" alt="索引标" class="tagPicture">
+            <span class="tagWord">交流</span>
+        </div>
+        <div class="interact">
+            <button class="good" id="good3"><img src="picture/dianzan.png" alt="点赞"></button>
+            <span id="good3Number">0</span>
+            <button class="comment"><img src="picture/评论.png" alt="评论"></button>
+            <span>评论</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const good3Btn = document.querySelector('#good3 img')
+    const good3Num = document.getElementById('good3Number');  
+    let good3Number = 0;
+
+    good3Btn.addEventListener('click', function() {
+        if (good3Btn.src.includes('dianzan.png')) {
+            good3Btn.src = 'picture/dianzan_1.png'; 
+            good3Number++; 
+        } else {
+            good3Btn.src = 'picture/dianzan.png';  
+            good3Number--; 
+        }
+        good3Num.textContent = good3Number;
+    });
+</script>
+
+<div class="contentSector">
+    <div class="upPart">
+        <div class="headshot">
+            <img src="picture/小家园.png" alt="头像.png">
+        </div>
+        <div class="mainInformation">
+            <div class="name">Name4</div>
+            <div class="college">XX学院</div>
+        </div>
+        <div class="time">Time4</div>
+    </div>
+    <div class="content">bulabulabula......</div>
+    <div class="downPart">
+        <div class="tag">
+            <img src="picture/指向标-copy.png" alt="索引标" class="tagPicture">
+            <span class="tagWord">交流</span>
+        </div>
+        <div class="interact">
+            <button class="good" id="good4"><img src="picture/dianzan.png" alt="点赞"></button>
+            <span id="good4Number">0</span>
+            <button class="comment"><img src="picture/评论.png" alt="评论"></button>
+            <span>评论</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const good4Btn = document.querySelector('#good4 img')
+    const good4Num = document.getElementById('good4Number');  
+    let good4Number = 0;
+
+    good4Btn.addEventListener('click', function() {
+        if (good4Btn.src.includes('dianzan.png')) {
+            good4Btn.src = 'picture/dianzan_1.png'; 
+            good4Number++; 
+        } else {
+            good4Btn.src = 'picture/dianzan.png';  
+            good4Number--; 
+        }
+        good4Num.textContent = good4Number;
+    });
+</script>
+
+<div class="contentSector">
+    <div class="upPart">
+        <div class="headshot">
+            <img src="picture/小家园.png" alt="头像.png">
+        </div>
+        <div class="mainInformation">
+            <div class="name">Name5</div>
+            <div class="college">XX学院</div>
+        </div>
+        <div class="time">Time5</div>
+    </div>
+    <div class="content">bulabulabula......</div>
+    <div class="downPart">
+        <div class="tag">
+            <img src="picture/指向标-copy.png" alt="索引标" class="tagPicture">
+            <span class="tagWord">交流</span>
+        </div>
+        <div class="interact">
+            <button class="good" id="good5"><img src="picture/dianzan.png" alt="点赞"></button>
+            <span id="good5Number">0</span>
+            <button class="comment"><img src="picture/评论.png" alt="评论"></button>
+            <span>评论</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const good5Btn = document.querySelector('#good5 img')
+    const good5Num = document.getElementById('good5Number');  
+    let good5Number = 0;
+
+    good5Btn.addEventListener('click', function() {
+        if (good5Btn.src.includes('dianzan.png')) {
+            good5Btn.src = 'picture/dianzan_1.png'; 
+            good5Number++; 
+        } else {
+            good5Btn.src = 'picture/dianzan.png';  
+            good5Number--; 
+        }
+        good5Num.textContent = good5Number;
+    });
+</script>
+
+    <button id="turnBackTop">
+        <img src="picture/上箭头-copy.png" alt="回到顶部箭头.png">
+    </button>
+
+    <script>
+        const turnBackTopBtn = document.getElementById('turnBackTop');
+
+        turnBackTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>   
+</body>
+</html>

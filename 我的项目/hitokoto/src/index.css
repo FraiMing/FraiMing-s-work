@@ -1,0 +1,58 @@
+@import "tailwindcss";
+.favorites.collapsed {
+  display: none;
+}
+
+button {
+  transition: transform 0.1s;
+  &:hover {
+    transform: scale(1.05);
+  }&:active {
+    transform: scale(0.95);
+  }
+}
+
+/* ai写的滚动条 */
+/* 自定义滚动条样式（Edge/Chrome/Safari 使用 WebKit 伪元素；Firefox 使用 scrollbar-* 属性） */
+/* 作用域：右下角抽屉 .drawer 和收藏列表 .fav-list，避免全局污染 */
+.drawer,
+.fav-list {
+  /* Firefox 定制：更细、更暗 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.65) rgba(255, 255, 255, 0.04);
+}
+.drawer::-webkit-scrollbar,
+.fav-list::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.drawer::-webkit-scrollbar-track,
+.fav-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04); /* 略微调暗 */
+  border-radius: 8px;
+}
+
+.drawer::-webkit-scrollbar-thumb,
+.fav-list::-webkit-scrollbar-thumb {
+  /* 渐变整体稍暗，终点色更深一点（indigo-600 近似 79,70,229） */
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.85), rgba(79, 70, 229, 0.85));
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0); /* 产生内边距效果 */
+  background-clip: content-box;
+}
+
+.drawer::-webkit-scrollbar-thumb:hover,
+.fav-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(125, 211, 252, 0.95), rgba(129, 140, 248, 0.95)); /* 仍亮但更克制 */
+}
+
+.drawer::-webkit-scrollbar-corner,
+.fav-list::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* 减少展开/收起时内容跳动 */
+.drawer {
+  scrollbar-gutter: stable; /* 支持的浏览器会保留滚动条占位 */
+}

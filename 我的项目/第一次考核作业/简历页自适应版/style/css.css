@@ -1,0 +1,62 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft Yahei";
+    font-size: 1.4em;
+}
+
+.backFirst {
+    background-color: whitesmoke;
+    margin: 16vh 23vw 0.25vh;
+}
+
+#name {
+    font-size: 1.8em;
+    padding: 2.5vh 2.3vw 0.25vh;
+}
+
+#namen {
+    padding: 0.25vh 2.3vw 2.5vh;
+    color: rgb(117, 115, 112);
+}
+
+.backMiddle {
+    background-color: whitesmoke;
+    margin: 0.25vh 23vw;
+}
+
+#normal {
+    padding: 2.5vh 2.3vw ;
+}
+
+.backLast {
+    background-color: whitesmoke;
+    margin: 0.25vh 23vw;
+}
+
+.norSpan {
+    padding: 0.6vh 0 0.6vh 0.7vw;
+    margin: 1.25vh 0.3vw ;
+}
+
+#span1 {
+    display: inline-block;
+    background-color: rgb(85, 180, 248);
+    border:solid 2px rgb(40, 51, 249);
+    border-radius: 5px;
+}
+
+#span2 {
+    display: inline-block;
+    background-color: rgb(151, 110, 247);
+    border:solid 2px rgb(137, 23, 252);
+    border-radius: 5px;
+}
+
+#span3 {
+    display: inline-block;
+    background-color: rgb(243, 235, 235);
+    border:solid 2px rgb(107, 107, 105);
+    border-radius: 5px;
+}

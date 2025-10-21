@@ -1,0 +1,55 @@
+body {
+    font-family: "Microsoft Yahei";
+}
+
+.backFirst {
+    background-color: whitesmoke;
+    margin: 130px 300px 2px;
+}
+
+#name {
+    font-size: xx-large;
+    padding: 20px 30px 2px;
+}
+
+#namen {
+    padding: 2px 30px 20px;
+    color: rgb(117, 115, 112);
+}
+
+.backMiddle {
+    background-color: whitesmoke;
+    margin: 2px 300px;
+}
+
+#normal {
+    padding: 20px 30px ;
+}
+
+.backLast {
+    background-color: whitesmoke;
+    margin: 2px 300px;
+}
+
+.norSpan {
+    padding: 5px 0 5px 9px;
+    margin: 10px 5px ;
+}
+
+#span1 {
+    background-color: rgb(85, 180, 248);
+    border:solid 2px rgb(40, 51, 249);
+    border-radius: 5px;
+}
+
+#span2 {
+    background-color: rgb(151, 110, 247);
+    border:solid 2px rgb(137, 23, 252);
+    border-radius: 5px;
+}
+
+#span3 {
+    background-color: rgb(243, 235, 235);
+    border:solid 2px rgb(107, 107, 105);
+    border-radius: 5px;
+}

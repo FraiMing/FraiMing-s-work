@@ -1,0 +1,147 @@
+
+.searchingSector {
+    height: 6vh;
+    margin:5vh 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.searchingBox {
+    height: 100%;
+    width: 40%;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+}
+
+.searchingForm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+#loupe {
+    border: none;
+    outline: none;
+    background: inherit;
+    padding:1% 1% 0 3%;
+}
+
+#focus {
+    border: none;
+    outline: none;
+    background: inherit;
+    margin-left: 5px;
+}
+
+#userInput {
+    width: 35vw;
+    border: none;
+    outline: none;
+    background: inherit;
+    font-size: medium;
+    display: flex;
+    align-items: center;
+}
+
+.contentSector {
+    background-color:rgb(253, 247, 246);
+    border-radius: 5px;
+    border-bottom: 1px solid #3498db;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 70vw;
+    margin:5vh auto ;
+    position: relative;
+
+}
+
+.upPart {
+    width: 20%;
+    display: flex;             
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.downPart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    width: 100%;
+}
+
+.headshot {
+    margin: 0 30% 0 10%;
+}
+
+.mainInformation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.name {
+    font-size: 1.8em;
+}
+
+.time {
+    position: absolute; 
+    right: 2%;
+}
+
+
+.content {
+    margin: 2% 0 8% 15%;
+    line-height: 1.5em;
+}
+
+.interact {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-right: 2%;
+}
+
+.tag {
+    background-color: #e0e4e6; 
+    display: flex;
+    align-items: center;   
+    border-radius: 20px;
+    padding:0 5px;   
+    margin-left: 15%; 
+}
+
+#turnBackTop {
+    border: none;
+    outline: none;
+    background: inherit;
+    position: fixed;
+    bottom: 10%;
+    right: 2%;
+}
+
+.good, .comment {
+    border: none;
+    outline: none;
+    background: inherit; 
+}
+
+#loupe, #focus, .good, .comment, #turnBackTop {
+    transition: transform 0.2s;
+}
+
+#loupe:hover, #focus:hover, .good:hover, .comment:hover, #turnBackTop:hover {
+    transform: scale(1.1);
+}
+
+#loupe:active, #focus:active, .good:active, .comment:active, #turnBackTop:active {
+    transform: scale(0.95);
+}
+
+
+

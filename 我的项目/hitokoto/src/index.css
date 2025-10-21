@@ -1,12 +1,9 @@
 @import "tailwindcss";
-.favorites.collapsed {
-  display: none;
-}
 
 button {
   transition: transform 0.1s;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }&:active {
     transform: scale(0.95);
   }
@@ -14,12 +11,13 @@ button {
 
 /* ai写的滚动条 */
 /* 自定义滚动条样式（Edge/Chrome/Safari 使用 WebKit 伪元素；Firefox 使用 scrollbar-* 属性） */
-/* 作用域：右下角抽屉 .drawer 和收藏列表 .fav-list，避免全局污染 */
+/* 作用域：左上角抽屉 .drawer 和收藏列表 .fav-list，避免全局污染 */
 .drawer,
 .fav-list {
   /* Firefox 定制：更细、更暗 */
   scrollbar-width: thin;
-  scrollbar-color: rgba(56, 189, 248, 0.65) rgba(255, 255, 255, 0.04);
+  /* 深蓝低饱和（不抢眼） */
+  scrollbar-color: rgba(30, 58, 138, 0.55) rgba(255, 255, 255, 0.03); /* thumb: 蓝-800 低透明，track: 暗 */
 }
 .drawer::-webkit-scrollbar,
 .fav-list::-webkit-scrollbar {
@@ -35,8 +33,8 @@ button {
 
 .drawer::-webkit-scrollbar-thumb,
 .fav-list::-webkit-scrollbar-thumb {
-  /* 渐变整体稍暗，终点色更深一点（indigo-600 近似 79,70,229） */
-  background: linear-gradient(180deg, rgba(56, 189, 248, 0.85), rgba(79, 70, 229, 0.85));
+  /* 深蓝渐变：从蓝-800 到靛青-950，低透明以降低存在感 */
+  background: linear-gradient(180deg, rgba(30, 58, 138, 0.65), rgba(15, 23, 42, 0.65));
   border-radius: 8px;
   border: 2px solid rgba(0, 0, 0, 0); /* 产生内边距效果 */
   background-clip: content-box;
@@ -44,7 +42,8 @@ button {
 
 .drawer::-webkit-scrollbar-thumb:hover,
 .fav-list::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(125, 211, 252, 0.95), rgba(129, 140, 248, 0.95)); /* 仍亮但更克制 */
+  /* 悬停时轻微提亮但保持低调 */
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.75), rgba(30, 41, 59, 0.75));
 }
 
 .drawer::-webkit-scrollbar-corner,
